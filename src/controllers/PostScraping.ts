@@ -70,7 +70,6 @@ export class ControllerPost {
             const t = data2.title[i]
             const v = data2.link2[i]
 
-            console.log(i)
 
             const PostFut = await prisma.listaFut.create({
                 data: {
@@ -79,8 +78,11 @@ export class ControllerPost {
                     video: `${v}`
                 }
             });
+            console.log(i)
             //return response.json(PostFut)
             await brawser.close()
+            //return response.json(PostFut);
+
         }
 
         //return response.json(PostFut);
