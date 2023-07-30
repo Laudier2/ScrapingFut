@@ -65,7 +65,7 @@ export class ControllerPost {
             }
         });*/
 
-        for (let i = 12; i < data2.img2.length; i++) {
+        for (let i = 0; i < 20; i++) {
             const img = data2.img2[i]
             const t = data2.title[i]
             const v = data2.link2[i]
@@ -78,9 +78,9 @@ export class ControllerPost {
                     video: `${v}`
                 }
             });
-            console.log(i)
             //return response.json(PostFut)
             await brawser.close()
+            console.log(PostFut)
             //return response.json(PostFut);
 
         }
