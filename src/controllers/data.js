@@ -27,7 +27,10 @@ const Screping = async () => {
 
     console.log(data)
 
-    await brawser.close()
+    setTimeout((
+        await brawser.close()
+    ), 35000)
+
 
 }
 

@@ -55,16 +55,6 @@ export class ControllerPost {
             img2: imgs
         }
 
-        console.log(data2)
-
-        /*const PostFut = await prisma.post.create({
-            data: {
-                title: `${data2.title2}`,
-                imagem: `${data2.img2}`,
-                video: `${data2.link2}`
-            }
-        });*/
-
         for (let i = 0; i < 20; i++) {
             const img = data2.img2[i]
             const t = data2.title[i]
@@ -79,11 +69,13 @@ export class ControllerPost {
                 }
             });
             //return response.json(PostFut)
-            await brawser.close()
+            //await brawser.close()
             console.log(PostFut)
             //return response.json(PostFut);
 
         }
+
+        await brawser.close()
 
         //return response.json(PostFut);
 
