@@ -10,30 +10,6 @@ export class ControllerPost {
     async handle(request: Request, response: Response) {
         const { title, imagem, video } = request.body;
 
-        if (
-            typeof title === 'number' ||
-            typeof imagem === 'number' ||
-            typeof video === 'number'
-        ) {
-            return response.status(500).json({
-                msg: `Algum campo estar em número! 
-          Lembre-se que, todos os campos tem estar em string ok!
-          Ou o id esta errado, verifique novamente
-          `
-            })
-        }
-
-        if (
-            typeof title === 'undefined' ||
-            typeof imagem === 'undefined' ||
-            typeof video === 'undefined'
-        ) {
-            return response.status(500).json({
-                msg: `Algum campo esta faltando! Verifique novamente!
-          Ou o id esta errado, verifique novamente`
-            })
-        }
-
         const brawser = await puppeteer.launch({
             //ignoreDefaultArgs: ['--disable-extensions'],
             //args: ['--no-sandbox', '--disable-setuid-sandbox']
@@ -48,6 +24,29 @@ export class ControllerPost {
         const imgs = await page.$$eval('.entry-image > a > img', imgs => imgs.map(img => img.getAttribute('src')));
         const title2 = await page.$$eval(".entry-title", (elements) => { return elements.map((el) => el.textContent.trim()) })
 
+        if (
+            typeof title2 === 'number' ||
+            typeof imgs === 'number' ||
+            typeof links === 'number'
+        ) {
+            return response.status(500).json({
+                msg: `Algum campo estar em número! 
+          Lembre-se que, todos os campos tem estar em string ok!
+          Ou o id esta errado, verifique novamente
+          `
+            })
+        }
+
+        if (
+            typeof title2 === 'undefined' ||
+            typeof imgs === 'undefined' ||
+            typeof links === 'undefined'
+        ) {
+            return response.status(500).json({
+                msg: `Algum campo esta faltando! Verifique novamente!
+          Ou o id esta errado, verifique novamente`
+            })
+        }
 
         const data2 = {
             title: title2,
