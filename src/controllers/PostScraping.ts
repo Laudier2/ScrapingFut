@@ -71,12 +71,10 @@ export class ControllerPost {
             //return response.json(PostFut)
             //await brawser.close()
             //console.log(PostFut)
-            setTimeout(() => {
-                brawser.close()
-            }, 10000)
             return response.json(PostFut);
 
         }
+        await brawser.close()
 
 
         //return response.json(PostFut);
