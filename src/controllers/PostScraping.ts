@@ -61,6 +61,7 @@ export class ControllerPost {
 
 
             const PostFut = await prisma.listaFut.create({
+
                 data: {
                     title: `${t}`,
                     imagem: `${img}`,
@@ -69,12 +70,12 @@ export class ControllerPost {
             });
             //return response.json(PostFut)
             //await brawser.close()
-            console.log(PostFut)
-            //return response.json(PostFut);
+            await brawser.close()
+            //console.log(PostFut)
+            return response.json(PostFut);
 
         }
 
-        //await brawser.close()
 
         //return response.json(PostFut);
 

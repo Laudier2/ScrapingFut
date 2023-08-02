@@ -24,12 +24,39 @@ const Screping = async () => {
         link: links,
         img: imgs
     }
+    const obj = {
+        foo() {
+            for (let i = 0; i < 20; i++) {
+                const img = data.img[i]
+                const t = data.title[i]
+                const v = data.link[i]
 
-    console.log(data)
+                const r = {title: t, img: img, link: v}
 
-    setTimeout((
+                console.log(r)
+                
+            }
+        }
+    }
+
+    /*const bar = {"title": "Laudier", "Cor": "pardo", "Genro": "Masculino"}
+    
+    const obj = {
+        foo() {
+            return bar;
+        }
+    };*/
+    
+    await brawser.close()
+//
+    console.log(obj.foo());
+      // Expected output: "bar"
+    
+    //console.log(data)
+
+    /*setTimeout((
         await brawser.close()
-    ), 35000)
+    ), 35000)*/
 
 
 }
