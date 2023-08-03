@@ -71,11 +71,11 @@ export class ControllerPost {
             //return response.json(PostFut)
             //await brawser.close()
             //console.log(PostFut)
-            await brawser.close()
             //return response.json(PostFut);
 
-        }
+            await brawser.close()
 
+        }
 
         //return response.json(PostFut);
 
