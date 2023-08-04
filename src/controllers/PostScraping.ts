@@ -68,10 +68,29 @@ export class ControllerPost {
                     video: `${v}`
                 }
             });
-            //return response.json(PostFut)
-            //await brawser.close()
-            //console.log(PostFut)
-            //return response.json(PostFut);
+
+            /*
+                 try {
+                    const PostFut = await prisma.listaFut.create({
+
+                        data: {
+                            title: `${t}`,
+                            imagem: `${img}`,
+                            video: `${v}`
+                        }
+                    });
+
+                    await brawser.close()
+
+                    return response.json({ data: PostFut })
+
+                } catch (error) {
+
+                    await brawser.close()
+
+                    return response.json({ msg: error })
+                }
+            */
 
             await brawser.close()
 
