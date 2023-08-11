@@ -24,7 +24,7 @@ export class controllerDelete {
                 id: id
             }
         })
-
+        console.log({ msg: "Jogo deletado com sucesso!", user })
         return response.json({ msg: "Jogo deletado com sucesso!", user });
     }
 }

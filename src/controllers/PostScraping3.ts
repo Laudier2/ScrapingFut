@@ -6,7 +6,7 @@ const url = "https://multicanais.fans/aovivohd/assistir-esportes-online/"
 
 const prisma = new PrismaClient()
 
-export class ControllerPost2 {
+export class ControllerPost3 {
     async handle(request: Request, response: Response) {
         const { title, imagem, video } = request.body;
 
@@ -54,25 +54,21 @@ export class ControllerPost2 {
             img2: imgs
         }
 
-        console.log(data2)
-
 
         try {
-            for (let i = 0; i < 20; i++) {
-                const img = data2.img2[i]
-                const t = data2.title[i]
-                const v = data2.link2[i]
+            const PostFut = await prisma.listaFut.create({
 
+                data: {
+                    title: `${data2.title}`,
+                    imagem: `${data2.link2}`,
+                    video: `${data2.img2}`
+                }
+            });
 
-                const PostFut = await prisma.listaFut.create({
+            await brawser.close()
 
-                    data: {
-                        title: `${t}`,
-                        imagem: `${img}`,
-                        video: `${v}`
-                    }
-                })
-            }
+            return response.json({ data: PostFut })
+
         } catch (error) {
 
             await brawser.close()
@@ -80,8 +76,7 @@ export class ControllerPost2 {
             return response.json({ msg: error })
         }
 
-        await brawser.close()
+        //return response.json(PostFut);
 
     }
-
 }
